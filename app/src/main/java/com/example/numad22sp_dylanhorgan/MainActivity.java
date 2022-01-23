@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         aboutMe.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-            Log.i("tag", "randomMessageThin");
+            Log.i("tag", "randomMessageThing");
             Toast.makeText(getApplicationContext(), "Dylan Horgan - dyhorgan@gmail.com", Toast.LENGTH_SHORT).show();
           }
         });

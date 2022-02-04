@@ -3,6 +3,20 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('/Users/dyhorgangmail.com/Desktop/FirstAppKeyStore')
+            storePassword 'Ho.66421'
+            keyAlias 'key0'
+            keyPassword 'Ho.66421'
+        }
+      ReleaseConfig {
+        storeFile file('/Users/dyhorgangmail.com/Desktop/FirstAppKeyStore')
+        storePassword 'Ho.66421'
+        keyAlias 'key0'
+        keyPassword 'Ho.66421'
+      }
+    }
     compileSdk 32
 
     defaultConfig {
@@ -13,6 +27,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+      signingConfig signingConfigs.debug
     }
 
     buildTypes {

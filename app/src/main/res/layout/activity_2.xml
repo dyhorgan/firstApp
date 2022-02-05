@@ -13,7 +13,7 @@
     tools:layout_editor_absoluteY="1dp">
 
     <Button
-      android:id="@+id/button8"
+      android:id="@+id/A"
       android:layout_width="88dp"
       android:layout_height="47dp"
       android:text="A"
@@ -25,7 +25,7 @@
       app:layout_constraintVertical_bias="0.422" />
 
     <Button
-      android:id="@+id/button9"
+      android:id="@+id/B"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="B"
@@ -37,7 +37,7 @@
       app:layout_constraintVertical_bias="0.421" />
 
     <Button
-      android:id="@+id/button10"
+      android:id="@+id/C"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="C"
@@ -49,7 +49,7 @@
       app:layout_constraintVertical_bias="0.422" />
 
     <Button
-      android:id="@+id/button11"
+      android:id="@+id/D"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="D"
@@ -61,7 +61,7 @@
       app:layout_constraintVertical_bias="0.59" />
 
     <Button
-      android:id="@+id/button12"
+      android:id="@+id/E"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="E"
@@ -73,7 +73,7 @@
       app:layout_constraintVertical_bias="0.59" />
 
     <Button
-      android:id="@+id/button13"
+      android:id="@+id/F"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="F"
@@ -85,7 +85,7 @@
       app:layout_constraintVertical_bias="0.59" />
 
     <EditText
-      android:id="@+id/editTextTextPersonName3"
+      android:id="@+id/pressed"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:ems="10"

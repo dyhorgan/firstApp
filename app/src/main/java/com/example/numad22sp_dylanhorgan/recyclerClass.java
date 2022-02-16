@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import android.widget.TextView;
 import java.util.ArrayList;
@@ -77,4 +78,7 @@ public class recyclerClass extends RecyclerView.Adapter<recyclerClass.MyViewHold
   public int getItemCount() {
     return linkList.size();
   }
+
+
+
 }

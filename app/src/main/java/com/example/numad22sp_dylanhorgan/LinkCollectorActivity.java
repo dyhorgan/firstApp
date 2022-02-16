@@ -1,7 +1,9 @@
 package com.example.numad22sp_dylanhorgan;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintSet;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -38,6 +40,8 @@ public class LinkCollectorActivity extends AppCompatActivity {
   private AlertDialog dialog;
   private EditText new_site_url, new_site_name;
   private Button cancel, submit;
+  private recyclerClass globalAdapter;
+
 
   public void CreateNewLinkBox(Context cxt){
     dialogBuilder = new AlertDialog.Builder(this);
@@ -121,14 +125,7 @@ public class LinkCollectorActivity extends AppCompatActivity {
 
       recyclerView = findViewById(R.id.recyclerId);
 
-     // ItemCard card = new ItemCard("Goldfish", "https://en.wikipedia.org/wiki/Goldfish");
-      //linkList.add(card);
 
-    //this.onRestoreInstanceState();
-
-      //[] linksArray = getResources().getStringArray(R.array.links);
-      //String[] linksArray = new String[] { "Cat", "Dog", "Shark", "Eel", "Goat" };
-      //String[] urlArray = new String[] {"https://en.wikipedia.org/wiki/Cat", "https://en.wikipedia.org/wiki/Dog", "https://en.wikipedia.org/wiki/Shark", "https://en.wikipedia.org/wiki/Eel", "https://en.wikipedia.org/wiki/Goat" };
       for(int i = 0; i < nameArray.size(); i++){
         Log.i(null, nameArray.get(i));
         ItemCard card = new ItemCard(nameArray.get(i), urlArray.get(i));
@@ -137,7 +134,8 @@ public class LinkCollectorActivity extends AppCompatActivity {
       }
 
       recyclerClass adapter = new recyclerClass(this, linkList);
-
+      new ItemTouchHelper(itemTouchHelperFunc).attachToRecyclerView(recyclerView);
+      globalAdapter = adapter;
       recyclerView.setAdapter(adapter);
       recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -162,7 +160,8 @@ public class LinkCollectorActivity extends AppCompatActivity {
       }
 
       recyclerClass adapter = new recyclerClass(this, linkList);
-
+      new ItemTouchHelper(itemTouchHelperFunc).attachToRecyclerView(recyclerView);
+      globalAdapter = adapter;
       recyclerView.setAdapter(adapter);
       recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -178,4 +177,19 @@ public class LinkCollectorActivity extends AppCompatActivity {
         System.out.println(thing);
       }
     }
+
+  ItemTouchHelper.SimpleCallback itemTouchHelperFunc = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT) {
+    @Override
+    public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+      return false;
+    }
+
+    @Override
+    public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+      urlArray.remove(viewHolder.getAdapterPosition());
+      nameArray.remove(viewHolder.getAdapterPosition());
+      linkList.remove(viewHolder.getAdapterPosition());
+      globalAdapter.notifyDataSetChanged();
+    }
+  };
 }

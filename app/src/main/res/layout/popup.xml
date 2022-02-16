@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical">
+
+  <EditText
+    android:id="@+id/siteName"
+    android:layout_width="174dp"
+    android:layout_height="51dp"
+    android:ems="10"
+    android:hint="Site Name"
+    android:inputType="textPersonName"
+    android:text="Site Name"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.413"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.23" />
+
+  <EditText
+    android:id="@+id/siteURL"
+    android:layout_width="202dp"
+    android:layout_height="57dp"
+    android:ems="10"
+    android:hint="Site URL"
+    android:inputType="textPersonName"
+    android:text="Site URL"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.401"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.405" />
+
+  <Button
+    android:id="@+id/cancelButton"
+    android:layout_width="105dp"
+    android:layout_height="50dp"
+    android:layout_marginTop="70dp"
+    android:text="Cancel"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.176"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/siteURL"
+    app:layout_constraintVertical_bias="0.587" />
+
+  <Button
+    android:id="@+id/submitButton"
+    android:layout_width="104dp"
+    android:layout_height="49dp"
+    android:layout_marginTop="70dp"
+    android:text="submit"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.674"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/siteURL"
+    app:layout_constraintVertical_bias="0.586" />
+</androidx.constraintlayout.widget.ConstraintLayout>

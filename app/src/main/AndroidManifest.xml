@@ -9,9 +9,11 @@
     android:roundIcon="@mipmap/custom_icon_round"
     android:supportsRtl="true"
     android:theme="@style/Theme.NUMAD22Sp_DylanHorgan">
+
     <activity
       android:name=".LinkCollectorActivity"
-      android:exported="false" />
+      android:exported="false">
+    </activity>
     <activity
       android:name=".AboutMeActivity"
       android:exported="false" />

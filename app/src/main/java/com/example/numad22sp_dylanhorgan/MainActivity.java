@@ -1,13 +1,22 @@
 package com.example.numad22sp_dylanhorgan;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,7 +51,11 @@ public class MainActivity extends AppCompatActivity {
           @Override
           public void onClick(View view){openLinkCollector();}
         });
+      ConstraintLayout mainLayout = findViewById(R.id.mainLayout);
+      Snackbar.make(mainLayout, "Created Successfully!", Snackbar.LENGTH_LONG);
+
     }
+
 
   public void openActivity2() {
       Intent theIntent = new Intent(this, Activity2.class);

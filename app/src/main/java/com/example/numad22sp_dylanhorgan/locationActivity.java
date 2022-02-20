@@ -3,11 +3,14 @@ package com.example.numad22sp_dylanhorgan;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.Manifest;
 import android.content.Context;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.location.LocationManager;
 
 import android.os.Build;
@@ -35,18 +38,20 @@ import com.google.android.material.snackbar.Snackbar;
 public class locationActivity extends AppCompatActivity {
     private LocationRequest locationRequest;
 
-
   @Override
-  public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults){
-    super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
+  public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] results){
+    super.onRequestPermissionsResult(requestCode, permissions, results);
+    View locationLayout = findViewById(R.id.locationLayout);
     if(requestCode == 1){
-      if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
-        Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
+      if(results[0] == PackageManager.PERMISSION_GRANTED){
+
+        Snackbar snack = Snackbar.make(locationLayout, "Permission Granted", Snackbar.LENGTH_LONG);
+        snack.show();
         Button locationButton = findViewById(R.id.getLocationButton);
         locationButton.setText("Touch to Get Location");
       }else{
-        Toast.makeText(this, "Permission Not Granted", Toast.LENGTH_SHORT).show();
+        Snackbar snack = Snackbar.make(locationLayout, "Permission Not Granted", Snackbar.LENGTH_LONG);
+        snack.show();
       }
     }
 
@@ -65,56 +70,59 @@ public class locationActivity extends AppCompatActivity {
   private void activateGPS(){
 
 
-    LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
+    LocationSettingsRequest.Builder locRequestBuilder = new LocationSettingsRequest.Builder()
       .addLocationRequest(locationRequest);
-    builder.setAlwaysShow(true);
+    locRequestBuilder.setAlwaysShow(true);
 
-    Task<LocationSettingsResponse> result = LocationServices.getSettingsClient(getApplicationContext())
-      .checkLocationSettings(builder.build());
+    Task<LocationSettingsResponse> resultObject = LocationServices.getSettingsClient(getApplicationContext())
+      .checkLocationSettings(locRequestBuilder.build());
 
-    result.addOnCompleteListener(new OnCompleteListener<LocationSettingsResponse>() {
+    View locationLayout = findViewById(R.id.locationLayout);
+
+    resultObject.addOnCompleteListener(new OnCompleteListener<LocationSettingsResponse>() {
       @Override
       public void onComplete(@NonNull Task<LocationSettingsResponse> task) {
 
         try {
-          LocationSettingsResponse response = task.getResult(ApiException.class);
-          Toast.makeText(locationActivity.this, "GPS is already turned on", Toast.LENGTH_SHORT).show();
-
+          LocationSettingsResponse locSettingsResponse = task.getResult(ApiException.class);
+          Snackbar snack = Snackbar.make(locationLayout, "GPS is already turned on", Snackbar.LENGTH_LONG);
+          snack.show();
         } catch (ApiException e) {
 
           switch (e.getStatusCode()) {
             case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
 
               try {
-                ResolvableApiException resolvableApiException = (ResolvableApiException)e;
-                resolvableApiException.startResolutionForResult(locationActivity.this, 2);
+                ResolvableApiException apiException = (ResolvableApiException)e;
+                apiException.startResolutionForResult(locationActivity.this, 2);
               } catch (IntentSender.SendIntentException ex) {
                 ex.printStackTrace();
               }
               break;
 
             case LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE:
-              //Device does not have location
+
               break;
           }
         }
       }
     });
   }
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
 
       locationRequest = LocationRequest.create();
+
       locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
       locationRequest.setInterval(5000);
       locationRequest.setFastestInterval(2000);
 
         Button getLocation = findViewById(R.id.getLocationButton);
-
+        if(getApplicationContext().checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+          getLocation.setText("Touch to Get Location");
+        }
 
         View locationLayout = findViewById(R.id.locationLayout);
 
@@ -124,8 +132,6 @@ public class locationActivity extends AppCompatActivity {
           public void onClick(View v) {
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
                 if(getApplicationContext().checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
-                  //Snackbar snack = Snackbar.make(locationLayout, "Clicked", Snackbar.LENGTH_LONG);
-                  //snack.show();
 
                   getLocation.setText("Touch to Get Location");
                   if(isGPSAvailable()){
@@ -142,9 +148,9 @@ public class locationActivity extends AppCompatActivity {
                           LocationServices.getFusedLocationProviderClient(locationActivity.this).removeLocationUpdates(this);
 
                           if(locationResult != null && locationResult.getLocations().size() > 0){
-                            int index = locationResult.getLocations().size() - 1;
-                            double latitude = locationResult.getLocations().get(index).getLatitude();
-                            double longitude = locationResult.getLocations().get(index).getLongitude();
+                            int lastIndex = locationResult.getLocations().size() - 1;
+                            double latitude = locationResult.getLocations().get(lastIndex).getLatitude();
+                            double longitude = locationResult.getLocations().get(lastIndex).getLongitude();
 
 
                             TextView latText = findViewById(R.id.latitudeText);
@@ -154,8 +160,7 @@ public class locationActivity extends AppCompatActivity {
                           }
                         }
                       }, Looper.getMainLooper());
-                    //Snackbar snack3 = Snackbar.make(locationLayout, "Hitting Bottom", Snackbar.LENGTH_LONG);
-                    //snack3.show();
+
                   }else{
                     activateGPS();
                   }
@@ -167,13 +172,19 @@ public class locationActivity extends AppCompatActivity {
               snack.show();
             }
           }
-//                                           TextView latText = findViewById(R.id.latitudeText);
-//                                           TextView longText = findViewById(R.id.longitudeText);
-//                                           latText.setText("blah");
-//                                           longText.setText("blah");
-//                                         }
+
            }
           );
+
         };
+
+  @Override
+  public void onConfigurationChanged(@NonNull Configuration newConfig) {
+    super.onConfigurationChanged(newConfig);
+    Button getLocation = findViewById(R.id.getLocationButton);
+    if(getApplicationContext().checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+      getLocation.setText("Touch to Get Location");
+    }
+  }
 
 }

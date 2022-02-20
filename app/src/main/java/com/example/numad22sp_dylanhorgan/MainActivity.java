@@ -53,6 +53,12 @@ public class MainActivity extends AppCompatActivity {
       ConstraintLayout mainLayout = findViewById(R.id.mainLayout);
       Snackbar.make(mainLayout, "Created Successfully!", Snackbar.LENGTH_LONG);
 
+      Button locationButton = findViewById(R.id.locationButton);
+      locationButton.setOnClickListener(new View.OnClickListener(){
+        @Override
+        public void onClick(View view){openLocationActivity();}
+      });
+
     }
 
 
@@ -69,5 +75,10 @@ public class MainActivity extends AppCompatActivity {
     public void openLinkCollector() {
       Intent LinkCollectorIntent = new Intent(this, LinkCollectorActivity.class);
       startActivity(LinkCollectorIntent);
+    }
+
+    public void openLocationActivity(){
+      Intent locationIntent = new Intent(this, locationActivity.class);
+      startActivity(locationIntent);
     }
 }

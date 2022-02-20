@@ -2,69 +2,57 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
-  android:id="@+id/mainLayout"
+  android:id="@+id/locationLayout"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  tools:context=".MainActivity">
+  tools:context=".locationActivity">
 
   <TextView
-    android:id="@+id/textView"
+    android:id="@+id/locatorTitle"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Hello World!"
+    android:text="Locator"
+    android:textSize="40dp"
     app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.526"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.175" />
+
+  <TextView
+    android:id="@+id/latitudeText"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Latitude"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.345"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.363" />
+
+  <TextView
+    android:id="@+id/longitudeText"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="longitude"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.345"
+    app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent" />
 
   <Button
-    android:id="@+id/aboutMe"
-    android:layout_width="100dp"
-    android:layout_height="100dp"
-    android:text="About Me"
-    android:visibility="visible"
+    android:id="@+id/getLocationButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Use GPS?"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintHorizontal_bias="0.498"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.744"
-    tools:visibility="visible" />
-
-  <Button
-    android:id="@+id/clickyclicky"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="ClickyClicky"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.498"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.313" />
-
-  <Button
-    android:id="@+id/linkCollector"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Link Collector"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.497"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.893" />
-
-  <Button
-    android:id="@+id/locationButton"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Location"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.488"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.115" />
+    app:layout_constraintVertical_bias="0.711" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

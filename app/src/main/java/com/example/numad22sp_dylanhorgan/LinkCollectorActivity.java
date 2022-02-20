@@ -62,8 +62,6 @@ public class LinkCollectorActivity extends AppCompatActivity {
       public void onClick(View v) {
         Log.i(null, "fired add card");
 
-
-
         String inputSiteURL = new_site_url.getText().toString();
         String inputSiteName = new_site_name.getText().toString();
         Log.i(null, inputSiteURL);
@@ -110,8 +108,6 @@ public class LinkCollectorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_link_collector);
 
-
-
       FloatingActionButton floatingButton = findViewById(R.id.floatingButton);
       Context cxt = this;
       floatingButton.setOnClickListener( new View.OnClickListener(){
@@ -124,7 +120,6 @@ public class LinkCollectorActivity extends AppCompatActivity {
       });
 
       recyclerView = findViewById(R.id.recyclerId);
-
 
       for(int i = 0; i < nameArray.size(); i++){
         Log.i(null, nameArray.get(i));

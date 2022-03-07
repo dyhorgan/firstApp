@@ -53,7 +53,10 @@ dependencies {
     implementation 'com.google.android.material:material:1.1.0-beta01'
     implementation 'com.google.android.gms:play-services-location:18.0.0'
     implementation 'com.github.niqo01.rxplayservices:rx-play-services-location:0.4.0'
+    implementation 'com.squareup.picasso:picasso:2.8'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.22'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'com.loopj.android:android-async-http:1.4.9'
 }

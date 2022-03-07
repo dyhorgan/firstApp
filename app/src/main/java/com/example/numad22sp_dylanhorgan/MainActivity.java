@@ -59,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View view){openLocationActivity();}
       });
 
+      Button serviceButton = findViewById(R.id.serviceButton);
+      serviceButton.setOnClickListener(new View.OnClickListener(){
+        @Override
+        public void onClick(View view){openServiceActivity();}
+      });
     }
 
 
@@ -80,5 +85,10 @@ public class MainActivity extends AppCompatActivity {
     public void openLocationActivity(){
       Intent locationIntent = new Intent(this, locationActivity.class);
       startActivity(locationIntent);
+    }
+
+    public void openServiceActivity(){
+      Intent serviceIntent = new Intent(this, ServiceActivity.class);
+      startActivity(serviceIntent);
     }
 }

@@ -19,8 +19,8 @@
 
   <Button
     android:id="@+id/aboutMe"
-    android:layout_width="100dp"
-    android:layout_height="100dp"
+    android:layout_width="107dp"
+    android:layout_height="53dp"
     android:text="About Me"
     android:visibility="visible"
     app:layout_constraintBottom_toBottomOf="parent"
@@ -66,5 +66,17 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintVertical_bias="0.115" />
+
+  <Button
+    android:id="@+id/serviceButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Service Button"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.498"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.612" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

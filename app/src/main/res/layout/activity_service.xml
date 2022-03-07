@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ServiceActivity">
+
+  <pl.droidsonroids.gif.GifImageView
+    android:id="@+id/loadingGif"
+    android:layout_width="229dp"
+    android:layout_height="94dp"
+    android:background="#fff"
+    android:src="@drawable/loadingnew"
+    android:visibility="invisible"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.45"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.0" />
+
+  <TextView
+    android:id="@+id/serviceTitle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Service Activity"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.05"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.287" />
+
+  <Button
+    android:id="@+id/serviceSubmit"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="submit"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.45"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.595" />
+
+  <EditText
+    android:id="@+id/serviceUserInput"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:ems="10"
+    android:inputType="textPersonName"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.441"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.445" />
+
+  <TextView
+    android:id="@+id/resultTextView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Results:"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.45"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.709" />
+
+  <TextView
+    android:id="@+id/serviceDirection"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Type A Number Between 1 and 3092"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.439"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.334" />
+
+  <TextView
+    android:id="@+id/serviceDescription"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="NBA Player Database"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.028"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.366" />
+
+  <ImageView
+    android:id="@+id/teamImage"
+    android:layout_width="107dp"
+    android:layout_height="90dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.45"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.987"
+    app:srcCompat="@drawable/app_widget_background" />
+</androidx.constraintlayout.widget.ConstraintLayout>
